@@ -1,9 +1,9 @@
-package ru.neoflex.conveyor.credit_conveyor.services;
+package ru.neoflex.conveyor.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.neoflex.conveyor.credit_conveyor.dtos.CreditDTO;
-import ru.neoflex.conveyor.credit_conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.dtos.CreditDTO;
+import ru.neoflex.conveyor.dtos.ScoringDataDTO;
 
 import java.math.BigDecimal;
 

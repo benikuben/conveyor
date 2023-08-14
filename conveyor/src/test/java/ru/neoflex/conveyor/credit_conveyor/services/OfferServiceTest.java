@@ -5,8 +5,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.neoflex.conveyor.credit_conveyor.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.conveyor.credit_conveyor.dtos.LoanOfferDTO;
+import ru.neoflex.conveyor.dtos.LoanApplicationRequestDTO;
+import ru.neoflex.conveyor.dtos.LoanOfferDTO;
+import ru.neoflex.conveyor.services.OfferService;
+import ru.neoflex.conveyor.services.ScoringService;
 
 import java.math.BigDecimal;
 import java.util.List;

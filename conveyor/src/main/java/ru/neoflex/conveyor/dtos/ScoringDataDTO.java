@@ -1,19 +1,14 @@
-package ru.neoflex.conveyor.credit_conveyor.dtos;
+package ru.neoflex.conveyor.dtos;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.neoflex.conveyor.credit_conveyor.util.Gender;
-import ru.neoflex.conveyor.credit_conveyor.util.MaritalStatus;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.BigDecimalNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.BooleanNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.DateNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.IntegerNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.validators.OverEighteenYearsOld;
+import ru.neoflex.conveyor.util.Gender;
+import ru.neoflex.conveyor.util.MaritalStatus;
+import ru.neoflex.conveyor.util.validators.OverEighteenYearsOld;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -26,13 +21,11 @@ public class ScoringDataDTO {
     @DecimalMin(value = "10000", message = "Сумма кредита должна быть больше или равна 10 000")
     @Digits(integer = 10, fraction = 2, message = "Значение суммы кредита должно быть в формате 0.00")
     @NotNull(message = "Должна быть введена корректная сумма кредита")
-    @JsonDeserialize(using = BigDecimalNonBlockingDeserializer.class)
     private BigDecimal amount;
 
     @Schema(description = "Срок", example = "6")
     @Min(value = 6, message = "Срок кредита должен быть больше или равен 6")
     @NotNull(message = "Должен быть введен корректный срок кредита")
-    @JsonDeserialize(using = IntegerNonBlockingDeserializer.class)
     private Integer term;
 
     @Schema(description = "Имя", example = "Ivan")
@@ -48,11 +41,10 @@ public class ScoringDataDTO {
     private String middleName;
 
     @Schema(description = "Гендер", example = "male")
-    @NotNull(message = "Гендер должен быть указан корректно (male, female или non binary)")
+    @NotNull(message = "Гендер должен быть указан корректно (MALE, FEMALE или NON_BINARY)")
     private Gender gender;
 
     @Schema(description = "Дата рождения", example = "2000-01-01")
-    @JsonDeserialize(using = DateNonBlockingDeserializer.class)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @OverEighteenYearsOld
     @NotNull(message = "Должна быть указана дата рождения в формате гггг-мм-дд")
@@ -68,7 +60,6 @@ public class ScoringDataDTO {
 
     @Schema(description = "Дата выдачи паспорта", example = "2014-01-01")
     @Past(message = "Дата должна быть раньше сгодняшней даты")
-    @JsonDeserialize(using = DateNonBlockingDeserializer.class)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "Должна быть указана дата выдачи паспорта в формате гггг-мм-дд")
     private LocalDate passportIssueDate;
@@ -78,14 +69,13 @@ public class ScoringDataDTO {
     private String passportIssueBranch;
 
     @Schema(description = "Семейное положение", example = "married")
-    @NotNull(message = "Семейное положение должно быть указано корректно (married или divorced)")
+    @NotNull(message = "Семейное положение должно быть указано корректно (MARRIED, DIVORCED, SINGLE или WIDOW_WIDOWER)")
     private MaritalStatus maritalStatus;
 
     @Schema(description = "Количество иждивенцев", example = "1")
     @Min(value = 0, message = "Количество иждивенцев должно быть больше 0")
     @Max(value = 20, message = "Количество иждивенцев должно быть не больше 20")
     @NotNull(message = "Должно быть введено корректное количество иждивенцев")
-    @JsonDeserialize(using = IntegerNonBlockingDeserializer.class)
     private Integer dependentAmount;
 
     @NotNull(message = "Данные о трудоустройстве должны быть указаны")
@@ -97,12 +87,10 @@ public class ScoringDataDTO {
     private String account;
 
     @Schema(description = "Включение страховки", example = "false")
-    @JsonDeserialize(using = BooleanNonBlockingDeserializer.class)
     @NotNull(message = "Необходимо указать, включена ли страховка")
     private Boolean isInsuranceEnabled;
 
     @Schema(description = "Статус зарплатного клиента", example = "false")
-    @JsonDeserialize(using = BooleanNonBlockingDeserializer.class)
     @NotNull(message = "Необходимо указать, являетесь ли Вы зарплатным клиентом")
     private Boolean isSalaryClient;
 }

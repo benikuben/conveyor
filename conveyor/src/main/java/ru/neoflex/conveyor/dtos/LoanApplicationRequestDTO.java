@@ -1,14 +1,10 @@
-package ru.neoflex.conveyor.credit_conveyor.dtos;
+package ru.neoflex.conveyor.dtos;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.BigDecimalNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.DateNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.IntegerNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.validators.OverEighteenYearsOld;
+import ru.neoflex.conveyor.util.validators.OverEighteenYearsOld;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -21,13 +17,11 @@ public class LoanApplicationRequestDTO {
     @DecimalMin(value = "10000", message = "Сумма кредита должна быть больше или равна 10 000")
     @Digits(integer = 10, fraction = 2, message = "Значение суммы кредита должно быть в формате 0.00")
     @NotNull(message = "Должна быть введена корректная сумма кредита")
-    @JsonDeserialize(using = BigDecimalNonBlockingDeserializer.class)
     private BigDecimal amount;
 
     @Schema(description = "Срок", example = "6")
     @Min(value = 6, message = "Срок кредита должен быть больше или равен 6")
     @NotNull(message = "Должен быть введен корректный срок кредита")
-    @JsonDeserialize(using = IntegerNonBlockingDeserializer.class)
     private Integer term;
 
     @Schema(description = "Имя", example = "Ivan")
@@ -47,7 +41,6 @@ public class LoanApplicationRequestDTO {
     private String email;
 
     @Schema(description = "Дата рождения", example = "2000-01-01")
-    @JsonDeserialize(using = DateNonBlockingDeserializer.class)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @OverEighteenYearsOld
     @NotNull(message = "Должна быть указана дата рождения в формате гггг-мм-дд")

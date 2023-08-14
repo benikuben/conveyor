@@ -1,4 +1,4 @@
-package ru.neoflex.conveyor.credit_conveyor.util.validators;
+package ru.neoflex.conveyor.util.validators;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

@@ -1,16 +1,16 @@
-package ru.neoflex.conveyor.credit_conveyor.services;
+package ru.neoflex.conveyor.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import ru.neoflex.conveyor.credit_conveyor.dtos.EmploymentDTO;
-import ru.neoflex.conveyor.credit_conveyor.dtos.PaymentScheduleElement;
-import ru.neoflex.conveyor.credit_conveyor.dtos.ScoringDataDTO;
-import ru.neoflex.conveyor.credit_conveyor.util.EmploymentStatus;
-import ru.neoflex.conveyor.credit_conveyor.util.Gender;
-import ru.neoflex.conveyor.credit_conveyor.util.MaritalStatus;
-import ru.neoflex.conveyor.credit_conveyor.util.Position;
-import ru.neoflex.conveyor.credit_conveyor.util.exceptions.LoanRejectionException;
+import ru.neoflex.conveyor.dtos.EmploymentDTO;
+import ru.neoflex.conveyor.dtos.PaymentScheduleElement;
+import ru.neoflex.conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.util.EmploymentStatus;
+import ru.neoflex.conveyor.util.Gender;
+import ru.neoflex.conveyor.util.MaritalStatus;
+import ru.neoflex.conveyor.util.Position;
+import ru.neoflex.conveyor.util.exceptions.LoanRejectionException;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -192,7 +192,7 @@ public class ScoringService {
 
         BigDecimal currentRateBeforeChanges = currentRate;
         switch (position) {
-            case MIDDLE_MANAGER -> {
+            case MID_MANAGER -> {
                 currentRate = currentRate.subtract(MIDDLE_MANAGER_PERCENT);
                 log.info("Position - middle manager. Rate reduced by 2");
             }

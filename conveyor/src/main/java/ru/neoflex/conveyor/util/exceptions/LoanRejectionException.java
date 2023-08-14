@@ -1,4 +1,4 @@
-package ru.neoflex.conveyor.credit_conveyor.util.exceptions;
+package ru.neoflex.conveyor.util.exceptions;
 
 public class LoanRejectionException extends RuntimeException {
     public LoanRejectionException() {

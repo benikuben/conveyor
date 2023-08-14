@@ -1,4 +1,4 @@
-package ru.neoflex.conveyor.credit_conveyor.config;
+package ru.neoflex.conveyor.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;

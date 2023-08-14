@@ -5,9 +5,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.neoflex.conveyor.credit_conveyor.dtos.CreditDTO;
-import ru.neoflex.conveyor.credit_conveyor.dtos.PaymentScheduleElement;
-import ru.neoflex.conveyor.credit_conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.dtos.CreditDTO;
+import ru.neoflex.conveyor.dtos.PaymentScheduleElement;
+import ru.neoflex.conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.services.CreditService;
+import ru.neoflex.conveyor.services.ScoringService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

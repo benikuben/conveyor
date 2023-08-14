@@ -1,13 +1,10 @@
-package ru.neoflex.conveyor.credit_conveyor.dtos;
+package ru.neoflex.conveyor.dtos;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.*;
-import ru.neoflex.conveyor.credit_conveyor.util.EmploymentStatus;
-import ru.neoflex.conveyor.credit_conveyor.util.Position;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.BigDecimalNonBlockingDeserializer;
-import ru.neoflex.conveyor.credit_conveyor.util.deserializers.IntegerNonBlockingDeserializer;
+import ru.neoflex.conveyor.util.EmploymentStatus;
+import ru.neoflex.conveyor.util.Position;
 
 import java.math.BigDecimal;
 
@@ -16,7 +13,7 @@ import java.math.BigDecimal;
 @Schema(description = "Данные о трудоустройстве пользователя")
 public class EmploymentDTO {
     @Schema(description = "Рабочий статус", example = "business owner")
-    @NotNull(message = "Рабочий статус должен быть указан корректно (unemployed, self-employed или business owner)")
+    @NotNull(message = "Рабочий статус должен быть указан корректно (UNEMPLOYED, SELF_EMPLOYED, EMPLOYED или BUSINESS_OWNER)")
     private EmploymentStatus employmentStatus;
 
     @Schema(description = "ИНН работодателя", example = "0123456789")
@@ -26,22 +23,19 @@ public class EmploymentDTO {
     @Schema(description = "Зарплата", example = "10000")
     @Digits(integer = 10, fraction = 2, message = "Значение зарплаты должно быть в формате 0.00")
     @NotNull(message = "Зарплата должна быть введена корректна")
-    @JsonDeserialize(using = BigDecimalNonBlockingDeserializer.class)
     private BigDecimal salary;
 
     @Schema(description = "Позиция на работе", example = "middle manager")
-    @NotNull(message = "Позиция на работе должна быть указана корректно (middle manager или top manager)")
+    @NotNull(message = "Позиция на работе должна быть указана корректно (WORKER, MID_MANAGER, TOP_MANAGER или OWNER)")
     private Position position;
 
     @Schema(description = "Общий стаж работы (в месяцах)", example = "12")
     @Min(value = 0, message = "Общий стаж работы (в месяцах) должен быть больше или равен 0")
     @NotNull(message = "Должен быть введен корректный общий стаж работы (в месяцах)")
-    @JsonDeserialize(using = IntegerNonBlockingDeserializer.class)
     private Integer workExperienceTotal;
 
     @Schema(description = "Текущий стаж работы (в месяцах)", example = "3")
     @Min(value = 0, message = "Текущий стаж работы (в месяцах) должен быть больше или равен 0")
     @NotNull(message = "Должен быть введен корректный текущий стаж работы (в месяцах)")
-    @JsonDeserialize(using = IntegerNonBlockingDeserializer.class)
     private Integer workExperienceCurrent;
 }

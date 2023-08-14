@@ -1,4 +1,4 @@
-package ru.neoflex.conveyor.credit_conveyor.util.exceptions;
+package ru.neoflex.conveyor.util.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
