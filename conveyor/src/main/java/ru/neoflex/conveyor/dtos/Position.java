@@ -1,4 +1,4 @@
-package ru.neoflex.conveyor.util;
+package ru.neoflex.conveyor.dtos;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

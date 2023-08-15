@@ -3,8 +3,6 @@ package ru.neoflex.conveyor.dtos;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.*;
-import ru.neoflex.conveyor.util.EmploymentStatus;
-import ru.neoflex.conveyor.util.Position;
 
 import java.math.BigDecimal;
 

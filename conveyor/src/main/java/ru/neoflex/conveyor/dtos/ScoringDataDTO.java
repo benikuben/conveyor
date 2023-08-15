@@ -6,8 +6,6 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.neoflex.conveyor.util.Gender;
-import ru.neoflex.conveyor.util.MaritalStatus;
 import ru.neoflex.conveyor.util.validators.OverEighteenYearsOld;
 
 import java.math.BigDecimal;

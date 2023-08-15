@@ -1,25 +1,27 @@
-package ru.neoflex.conveyor.util;
+package ru.neoflex.conveyor.dtos;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Gender
+ * Employment status
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T19:08:55.611294400+03:00[Europe/Moscow]")
-public enum Gender {
+public enum EmploymentStatus {
   
-  MALE("MALE"),
+  UNEMPLOYED("UNEMPLOYED"),
   
-  FEMALE("FEMALE"),
+  SELF_EMPLOYED("SELF_EMPLOYED"),
   
-  NON_BINARY("NON_BINARY");
+  EMPLOYED("EMPLOYED"),
+  
+  BUSINESS_OWNER("BUSINESS_OWNER");
 
   private String value;
 
-  Gender(String value) {
+  EmploymentStatus(String value) {
     this.value = value;
   }
 
@@ -34,8 +36,8 @@ public enum Gender {
   }
 
   @JsonCreator
-  public static Gender fromValue(String value) {
-    for (Gender b : Gender.values()) {
+  public static EmploymentStatus fromValue(String value) {
+    for (EmploymentStatus b : EmploymentStatus.values()) {
       if (b.value.equals(value)) {
         return b;
       }

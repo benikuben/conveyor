@@ -9,10 +9,10 @@ import ru.neoflex.conveyor.dtos.EmploymentDTO;
 import ru.neoflex.conveyor.dtos.PaymentScheduleElement;
 import ru.neoflex.conveyor.dtos.ScoringDataDTO;
 import ru.neoflex.conveyor.services.ScoringService;
-import ru.neoflex.conveyor.util.EmploymentStatus;
-import ru.neoflex.conveyor.util.Gender;
-import ru.neoflex.conveyor.util.MaritalStatus;
-import ru.neoflex.conveyor.util.Position;
+import ru.neoflex.conveyor.dtos.EmploymentStatus;
+import ru.neoflex.conveyor.dtos.Gender;
+import ru.neoflex.conveyor.dtos.MaritalStatus;
+import ru.neoflex.conveyor.dtos.Position;
 import ru.neoflex.conveyor.util.exceptions.LoanRejectionException;
 
 import java.math.BigDecimal;
