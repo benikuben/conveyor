@@ -15,6 +15,6 @@ public class OverEighteenYearsOldValidator implements ConstraintValidator<OverEi
 
     @Override
     public boolean isValid(LocalDate localDate, ConstraintValidatorContext constraintValidatorContext) {
-        return localDate != null && !localDate.isAfter(currentDate);
+        return localDate != null && !localDate.isAfter(currentDate.minusYears(18));
     }
 }
