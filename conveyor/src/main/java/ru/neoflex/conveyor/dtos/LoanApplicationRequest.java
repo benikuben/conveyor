@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Schema(description = "Данные пользователя, необходимые для отправки заявки на кредит")
-public class LoanApplicationRequestDTO {
+public class LoanApplicationRequest {
     @Schema(description = "Сумма", example = "10000")
     @DecimalMin(value = "10000", message = "Сумма кредита должна быть больше или равна 10 000")
     @Digits(integer = 10, fraction = 2, message = "Значение суммы кредита должно быть в формате 0.00")

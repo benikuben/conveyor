@@ -1,4 +1,4 @@
-package ru.neoflex.conveyor.util;
+package ru.neoflex.conveyor.controllers;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import jakarta.validation.ConstraintViolationException;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import ru.neoflex.conveyor.util.exceptions.ErrorResponse;
-import ru.neoflex.conveyor.util.exceptions.LoanRejectionException;
+import ru.neoflex.conveyor.dtos.ErrorResponse;
+import ru.neoflex.conveyor.exceptions.LoanRejectionException;
 
 import java.util.List;
 import java.util.stream.Collectors;

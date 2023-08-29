@@ -2,10 +2,10 @@ package ru.neoflex.conveyor.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.neoflex.conveyor.dtos.CreditDTO;
-import ru.neoflex.conveyor.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.conveyor.dtos.LoanOfferDTO;
-import ru.neoflex.conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.dtos.Credit;
+import ru.neoflex.conveyor.dtos.LoanApplicationRequest;
+import ru.neoflex.conveyor.dtos.LoanOffer;
+import ru.neoflex.conveyor.dtos.ScoringData;
 
 import java.util.List;
 
@@ -16,12 +16,12 @@ public class ConveyorServiceImpl implements ConveyorService {
     private final CreditService creditService;
 
     @Override
-    public List<LoanOfferDTO> generateOffers(LoanApplicationRequestDTO request) {
+    public List<LoanOffer> generateOffers(LoanApplicationRequest request) {
         return offerService.generateOffers(request);
     }
 
     @Override
-    public CreditDTO generateCredit(ScoringDataDTO request) {
+    public Credit generateCredit(ScoringData request) {
         return creditService.generateCredit(request);
     }
 }

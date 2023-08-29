@@ -3,17 +3,15 @@ package ru.neoflex.conveyor.credit_conveyor.services;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
-import ru.neoflex.conveyor.dtos.EmploymentDTO;
+import ru.neoflex.conveyor.dtos.Employment;
 import ru.neoflex.conveyor.dtos.PaymentScheduleElement;
-import ru.neoflex.conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.dtos.ScoringData;
 import ru.neoflex.conveyor.services.ScoringService;
 import ru.neoflex.conveyor.dtos.EmploymentStatus;
 import ru.neoflex.conveyor.dtos.Gender;
 import ru.neoflex.conveyor.dtos.MaritalStatus;
 import ru.neoflex.conveyor.dtos.Position;
-import ru.neoflex.conveyor.util.exceptions.LoanRejectionException;
+import ru.neoflex.conveyor.exceptions.LoanRejectionException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -26,18 +24,10 @@ class ScoringServiceTest {
     @Autowired
     private ScoringService scoringService;
 
-    @TestConfiguration
-    public static class TestConfig {
-        @Bean
-        public ScoringService scoringServiceBean() {
-            return new ScoringService();
-        }
-    }
-
     @Test
     void performScoring() {
-        ScoringDataDTO data = new ScoringDataDTO();
-        EmploymentDTO employment = new EmploymentDTO();
+        ScoringData data = new ScoringData();
+        Employment employment = new Employment();
         data.setBirthdate(LocalDate.now());
         data.setAmount(BigDecimal.valueOf(10000));
         data.setIsInsuranceEnabled(false);
@@ -69,8 +59,8 @@ class ScoringServiceTest {
 
     @Test
     void calculateRate() {
-        ScoringDataDTO data = new ScoringDataDTO();
-        EmploymentDTO employment = new EmploymentDTO();
+        ScoringData data = new ScoringData();
+        Employment employment = new Employment();
 
         /*
          * Базовая ставка - 17

@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Schema(description = "Данные пользователя, необходимые для полного расчета параметров кредита")
-public class ScoringDataDTO {
+public class ScoringData {
     @Schema(description = "Сумма", example = "10000")
     @DecimalMin(value = "10000", message = "Сумма кредита должна быть больше или равна 10 000")
     @Digits(integer = 10, fraction = 2, message = "Значение суммы кредита должно быть в формате 0.00")
@@ -78,7 +78,7 @@ public class ScoringDataDTO {
 
     @NotNull(message = "Данные о трудоустройстве должны быть указаны")
     @Valid
-    private EmploymentDTO employment;
+    private Employment employment;
 
     @Schema(description = "Номер банковского счета", example = "01234567890123456789")
     @Pattern(regexp = "^\\d{20}$", message = "Номер банковского счета должен содержать 20 цифр")

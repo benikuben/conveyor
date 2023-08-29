@@ -5,8 +5,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.neoflex.conveyor.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.conveyor.dtos.LoanOfferDTO;
+import ru.neoflex.conveyor.dtos.LoanApplicationRequest;
+import ru.neoflex.conveyor.dtos.LoanOffer;
 import ru.neoflex.conveyor.services.OfferService;
 import ru.neoflex.conveyor.services.ScoringService;
 
@@ -29,7 +29,7 @@ class OfferServiceTest {
     void generateOffers() {
         BigDecimal amount = BigDecimal.valueOf(10000);
         Integer term = 6;
-        LoanApplicationRequestDTO request = new LoanApplicationRequestDTO();
+        LoanApplicationRequest request = new LoanApplicationRequest();
         request.setAmount(amount);
         request.setTerm(term);
 
@@ -51,7 +51,7 @@ class OfferServiceTest {
         when(scoringService.calculateMonthlyPayment(any(), any(), any())).
                 thenReturn(monthlyPayment, monthlyPaymentOfSalaryClient, monthlyPaymentWithIns, monthlyPaymentOfSalaryClientWithIns);
 
-        List<LoanOfferDTO> actualLoanOfferDTOS = offerService.generateOffers(request);
+        List<LoanOffer> actualLoanOfferDTOS = offerService.generateOffers(request);
 
         //tests
 

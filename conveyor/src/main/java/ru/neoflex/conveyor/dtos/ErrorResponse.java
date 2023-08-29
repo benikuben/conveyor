@@ -1,4 +1,4 @@
-package ru.neoflex.conveyor.util.exceptions;
+package ru.neoflex.conveyor.dtos;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

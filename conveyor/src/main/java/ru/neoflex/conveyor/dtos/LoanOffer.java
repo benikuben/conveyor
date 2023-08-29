@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Getter
 @Builder
 @Schema(description = "Возможные условия кредита")
-public class LoanOfferDTO {
+public class LoanOffer {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private Long applicationId;
 

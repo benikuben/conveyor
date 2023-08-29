@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Builder
 @Schema(description = "Параметры кредита")
-public class CreditDTO {
+public class Credit {
     @Schema(description = "Общая сумма кредита", example = "10000")
     private BigDecimal amount;
 

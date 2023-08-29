@@ -5,9 +5,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.neoflex.conveyor.dtos.CreditDTO;
+import ru.neoflex.conveyor.dtos.Credit;
 import ru.neoflex.conveyor.dtos.PaymentScheduleElement;
-import ru.neoflex.conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.dtos.ScoringData;
 import ru.neoflex.conveyor.services.CreditService;
 import ru.neoflex.conveyor.services.ScoringService;
 
@@ -32,7 +32,7 @@ class CreditServiceTest {
         Integer term = 6;
         Boolean isInsuranceEnabled = false;
         Boolean isSalaryClient = false;
-        ScoringDataDTO data = new ScoringDataDTO();
+        ScoringData data = new ScoringData();
         data.setTerm(term);
         data.setIsInsuranceEnabled(isInsuranceEnabled);
         data.setIsSalaryClient(isSalaryClient);
@@ -56,7 +56,7 @@ class CreditServiceTest {
         when(scoringService.calculatePsk(any(), any(), any())).thenReturn(psk);
         when(scoringService.scheduleMonthlyPayments(any(), any(), any(), any())).thenReturn(payments);
 
-        CreditDTO actualCreditDTO = creditService.generateCredit(data);
+        Credit actualCreditDTO = creditService.generateCredit(data);
 
         //tests
 

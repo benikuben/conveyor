@@ -6,11 +6,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.neoflex.conveyor.dtos.CreditDTO;
+import ru.neoflex.conveyor.dtos.Credit;
 import ru.neoflex.conveyor.services.ConveyorService;
-import ru.neoflex.conveyor.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.conveyor.dtos.LoanOfferDTO;
-import ru.neoflex.conveyor.dtos.ScoringDataDTO;
+import ru.neoflex.conveyor.dtos.LoanApplicationRequest;
+import ru.neoflex.conveyor.dtos.LoanOffer;
+import ru.neoflex.conveyor.dtos.ScoringData;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class ConveyorController {
             description = "Позволяет расчитать возможные условия кредита"
     )
     @PostMapping("/offers")
-    public ResponseEntity<List<LoanOfferDTO>> generateOffers(@RequestBody @Valid LoanApplicationRequestDTO request) {
+    public ResponseEntity<List<LoanOffer>> generateOffers(@RequestBody @Valid LoanApplicationRequest request) {
         return ResponseEntity.ok(conveyorService.generateOffers(request));
     }
 
@@ -43,7 +43,7 @@ public class ConveyorController {
             description = "Позволяет произвести валидацию и скоринг присланных данных, полный расчет параметров кредита"
     )
     @PostMapping("/calculation")
-    public ResponseEntity<CreditDTO> generateCredit(@RequestBody @Valid ScoringDataDTO request) {
+    public ResponseEntity<Credit> generateCredit(@RequestBody @Valid ScoringData request) {
         return ResponseEntity.ok(conveyorService.generateCredit(request));
     }
 }

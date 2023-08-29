@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Setter
 @Getter
 @Schema(description = "Данные о трудоустройстве пользователя")
-public class EmploymentDTO {
+public class Employment {
     @Schema(description = "Рабочий статус", example = "business owner")
     @NotNull(message = "Рабочий статус должен быть указан корректно (UNEMPLOYED, SELF_EMPLOYED, EMPLOYED или BUSINESS_OWNER)")
     private EmploymentStatus employmentStatus;
