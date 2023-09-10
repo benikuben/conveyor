@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.neoflex.conveyor.dtos.Credit;
 import ru.neoflex.conveyor.dtos.PaymentScheduleElement;
 import ru.neoflex.conveyor.dtos.ScoringData;
-import ru.neoflex.conveyor.services.CreditService;
+import ru.neoflex.conveyor.services.CreditServiceImpl;
 import ru.neoflex.conveyor.services.ScoringService;
 
 import java.math.BigDecimal;
@@ -25,7 +25,7 @@ class CreditServiceTest {
     private ScoringService scoringService;
 
     @InjectMocks
-    private CreditService creditService;
+    private CreditServiceImpl creditService;
 
     @Test
     void generateCredit() {

@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.neoflex.conveyor.dtos.LoanApplicationRequest;
 import ru.neoflex.conveyor.dtos.LoanOffer;
-import ru.neoflex.conveyor.services.OfferService;
+import ru.neoflex.conveyor.services.OfferServiceImpl;
 import ru.neoflex.conveyor.services.ScoringService;
 
 import java.math.BigDecimal;
@@ -23,7 +23,7 @@ class OfferServiceTest {
     private ScoringService scoringService;
 
     @InjectMocks
-    private OfferService offerService;
+    private OfferServiceImpl offerService;
 
     @Test
     void generateOffers() {

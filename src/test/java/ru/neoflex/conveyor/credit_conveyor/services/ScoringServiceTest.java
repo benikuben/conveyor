@@ -6,12 +6,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import ru.neoflex.conveyor.dtos.Employment;
 import ru.neoflex.conveyor.dtos.PaymentScheduleElement;
 import ru.neoflex.conveyor.dtos.ScoringData;
-import ru.neoflex.conveyor.services.ScoringService;
 import ru.neoflex.conveyor.dtos.EmploymentStatus;
 import ru.neoflex.conveyor.dtos.Gender;
 import ru.neoflex.conveyor.dtos.MaritalStatus;
 import ru.neoflex.conveyor.dtos.Position;
 import ru.neoflex.conveyor.exceptions.LoanRejectionException;
+import ru.neoflex.conveyor.services.ScoringService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
